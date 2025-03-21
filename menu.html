@@ -5,129 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gitwamba Dining Outlets</title>
     <style>
-       body {
-            font-family: 'Georgia', serif;
+        body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #fdf7e3;
             color: #5a4a37;
             overflow-x: hidden;
+            font-size: 14px;
         }
-
+    
         header {
-            background-color: #8b6d52;
+            /* Apply a subtle gradient where #8b6d52 is used */
+            background: linear-gradient(45deg, #8b6d52, rgba(0,0,0,0.1));
             color: #fff;
             text-align: center;
-            padding: 30px 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-in-out;
+            padding: 20px 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
         }
-
+    
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 1.8em;
         }
-
+    
         header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
+            margin: 5px 0 0;
+            font-size: 1em;
         }
-
+    
         .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
             background-color: #fffdf7;
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-            border-radius: 10px;
-        }
-
-        .outlet {
-            margin: 30px 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20px;
-            opacity: 0;
-            animation: slideIn 1s ease-in-out forwards;
-        }
-
-        .outlet img {
-            flex: 1 1 250px;
-            max-width: 100%;
-            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
-
+    
+        .outlet {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            animation: slideIn 0.8s ease-in-out forwards;
+        }
+    
+        .outlet img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
         .outlet-text {
-            flex: 2 1 400px;
+            text-align: center;
         }
-
-        .outlet:nth-child(odd) {
-            flex-direction: row-reverse;
-        }
-
+    
         .outlet h2 {
-            color: #8b6d52;
+            /* Apply a text gradient effect for headings */
+            background: linear-gradient(45deg, #8b6d52, rgba(0,0,0,0.1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-top: 0;
+            font-size: 1.4em;
         }
-
+    
         .outlet p {
-            line-height: 1.6;
+            line-height: 1.4;
+            font-size: 0.9em;
         }
-
+    
         .outlet .btn {
+            /* Apply the same gradient on buttons */
             display: inline-block;
             margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #8b6d52;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #8b6d52, rgba(0,0,0,0.1));
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
+            font-weight: 500;
+            border-radius: 4px;
             transition: background-color 0.3s, transform 0.3s;
+            font-size: 0.9em;
         }
-
+    
         .outlet .btn:hover {
-            background-color: #6c4c35;
-            transform: scale(1.05);
+            background: linear-gradient(45deg, #6c4c35, rgba(0,0,0,0.15));
+            transform: scale(1.03);
         }
-
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
+    
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        /* Delayed animation for outlets */
-        .outlet:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .outlet:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .outlet:nth-child(3) {
-            animation-delay: 0.6s;
-        }
     </style>
+    
+    
 </head>
 <body>
 
