@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitwamba Hotel & Dining - Nakuru</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, rgba(235, 231, 231, 0.5), rgba(238, 215, 4, 0.5));
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #232423, #5e5d5d);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: url('hotel.jpg') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .outlets, .hotel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .outlet, .hotel-room {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex: 1 1 300px;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .outlet:hover, .hotel-room:hover {
+            transform: translateY(-10px);
+        }
+
+        .outlet img, .hotel-room img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .outlet h3, .hotel-room h3 {
+            font-size: 1.5em;
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #474747, #222222);
+            color: white;
+        }
+
+        .outlet p, .hotel-room p {
+            padding: 15px;
+            font-size: 1.1em;
+            text-align: center;
+            color: #555;
+        }
+
+        
+
+        /* Toggle Button */
+     .toggle-button {
+        background: linear-gradient(to right, rgba(235, 231, 231, 0.5), rgba(236, 214, 13, 0.945));
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        left: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+    }
+
+    .toggle-button:hover {
+        background-color: #555;
+        transform: scale(1.05);
+    }
+
+     /* Navigation Menu */
+     .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 20px;
+        background: linear-gradient(to right, rgba(223, 167, 13, 0.849), rgba(121, 117, 86, 0.5));
+        color: #fff;
+        padding: 1px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        width: 200px;
+    }
+
+    .nav-menu.show {
+        transform: translateX(0);
+    }
+
+    .nav-menu a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .nav-menu a:hover {
+        background-color: #555;
+    } 
+
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Gitwamba Hotel & Dining</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="menu.html">Menu</a>
+            <a href="rooms.html">rooms</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Experience Comfort & Delight at Nakuru's Best!</h2>
+    </section>
+
+    <!-- About Us Section -->
+    <div class="content">
+        <section id="about" class="about">
+            <h2 class="section-title">About Us</h2>
+            <h3>Located in the heart of Nakuru</h3>
+            <p>Welcome to Gitwamba Hotel, your ultimate destination for luxurious accommodation and mouth-watering dining experiences. Situated along Kenyatta Avenue, our establishment offers a perfect blend of comfort and taste, featuring hotel room bookings on the second floor and three exquisite dining outlets serving a variety of delicious foods. Whether you're here for business or leisure, we ensure your stay is pleasant and your meals unforgettable.</p>
+        </section>
+
+        <!-- Dining Outlets Section -->
+        <section id="outlets">
+            <h2 class="section-title">Our Dining Outlets</h2>
+            <div class="outlets">
+                <!-- Lenz Pizza Joint -->
+                <div class="outlet">
+                    <img src="pizza.jpg" alt="Lenz Pizza Joint">
+                    <h3>Lenz Pizza Joint</h3>
+                    <p>Enjoy a wide range of freshly made pizzas, from classic margherita to gourmet flavors that will leave you craving for more. Perfect for pizza lovers!</p>
+                </div>
+
+                <!-- Mainstreet Barbecue -->
+                <div class="outlet">
+                    <img src="street2.jpg" alt="Mainstreet Barbecue">
+                    <h3>Mainstreet Barbecue</h3>
+                    <p>For burger enthusiasts, Mainstreet Barbecue offers succulent burgers packed with flavor. Our grilled dishes are prepared with the freshest ingredients.</p>
+                </div>
+
+                <!-- Rosttoast Coffee Lounge -->
+                <div class="outlet">
+                    <img src="coffee.jpg" alt="Rosttoast Coffee Lounge">
+                    <h3>Rosttoast Coffee Lounge</h3>
+                    <p>Relax and unwind at Rosttoast Coffee Lounge, where we serve expertly brewed coffee and delightful pastries. A perfect stop for a refreshing break.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotel Booking Section -->
+        <section id="hotel" class="hotel">
+            <h2 class="section-title">Hotel Booking</h2>
+            <div class="hotel">
+                <div class="hotel-room">
+                    <img src="hotel_room.jpg" alt="Comfortable Rooms">
+                    <h3>Comfortable Rooms</h3>
+                    <p>Our hotel offers luxurious rooms on the second floor, providing the perfect environment to relax after a long day. Book your stay today!</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+     <!-- Toggle Button -->
+ <button class="toggle-button" onclick="toggleMenu()">☰</button>
+
+ <!-- Navigation Menu -->
+ <div id="navMenu" class="nav-menu">
+     <a href="index.html">Home</a>
+     <a href="#rooms">Rooms</a>
+     <a href="menu.html">Dining</a>
+     <a href="about_us.html">About us</a>
+     <a href="account.html">Account</a>
+     
+ </div>
+
+ <script>
+     function toggleMenu() {
+         var menu = document.getElementById('navMenu');
+         menu.classList.toggle('show');
+     }
+ </script>
+</body>
+<footer style="background-color: #2c2c2c; color: #f1f1f1; padding: 40px 20px; font-size: 14px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <!-- About Section -->
+      <div style="flex: 1 1 250px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">About Us</h3>
+        <p style="line-height: 1.6;">
+          We are dedicated to providing exceptional service and quality experiences.
+          Visit us for a blend of comfort and delicious offerings.
+        </p>
+      </div>
+  
+      <!-- Navigation Links -->
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0; line-height: 1.8;">
+          <li><a href="index.html" style="color: #f1f1f1; text-decoration: none;">Home</a></li>
+          <li><a href="menu.html" style="color: #f1f1f1; text-decoration: none;">Menu</a></li>
+          <li><a href="rooms.html" style="color: #f1f1f1; text-decoration: none;">Rooms</a></li>
+          <li><a href="about_us.html" style="color: #f1f1f1; text-decoration: none;">About_us </a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Section -->
+      <div style="flex: 1 1 250px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Contact Us</h3>
+        <p style="line-height: 1.6;">
+          Gitwamba Building, Kenyatta Avenue<br>
+          Nakuru Town<br>
+          Phone: <a href="0746660706" style="color: #f1f1f1;">0746660706</a><br>
+          Email: <a href="mailto:midrift01@gmail.com" style="color: #f1f1f1;">midrift01@gmail.com</a>
+        </p>
+      </div>
+  
+      <!-- Social Media Links -->
+      <div style="flex: 1 1 250px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Follow Us</h3>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/share/oENNHpewBxx9LwrU/?mibextid=LQQJ4d" target="_blank" style="color: #f1f1f1; text-decoration: none;">
+            <img src="facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
+          </a>
+          
+          <a href="https://www.instagram.com/lennzpizzajoint?igsh=ejlsZTk1a2RmbGp3&utm_source=qr" target="_blank" style="color: #f1f1f1; text-decoration: none;">
+            <img src="instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+          </a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <hr style="border: 1px solid #444; margin: 20px 0;">
+  
+    <div style="text-align: center;">
+      <p style="margin: 0; line-height: 1.6;">
+        &copy; 2025 Gitwamba Enterprises. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+</html>

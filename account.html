@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign-Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #63abf3, #773127);
+            display: flex;
+            justify-content: center;
+            
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent default scrollbar on body */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 250px; /* Increased max-width for better spacing */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            overflow: auto; /* Enable scrollbar for overflow */
+            padding: 20px;
+            height: auto; /* Ensure container doesn't exceed viewport height */
+        }
+
+        .form-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .form {
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        h2 {
+            margin-top: auto;
+            color: #333;
+            font-size: 1.4rem;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 4px;
+            color: #242323;
+            font-size: 0.85rem;
+        }
+
+        input, textarea, button {
+            width: 80%;
+            padding: 1px; /* Slightly increased padding for better usability */
+            margin-bottom: 12px; /* Increased margin for better spacing */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.85rem;
+        }
+
+        textarea {
+            resize: vertical; /* Allow vertical resize only */
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            transform: scale(1.02);
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        .hidden {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            animation: slideOut 0.5s ease-in-out forwards;
+        }
+
+        .show {
+            opacity: 1;
+            animation: slideIn 0.5s ease-in-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 90%;
+                max-height: 90vh; /* Allow scrolling within viewport height */
+                overflow-y: auto; /* Enable vertical scrollbar if content overflows */
+                border-radius: 8px;
+                box-shadow: none;
+            }
+
+            .form-container {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Custom scrollbar styles */
+        .container::-webkit-scrollbar {
+            width: 8px; /* Width of the scrollbar */
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Track background */
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: #888; /* Handle color */
+            border-radius: 10px; /* Rounded corners for the scrollbar */
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Darker handle color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form show" id="login-form">
+                <h2>Login</h2>
+                <form action="login.php" method="post">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                    
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+            </div>
+            
+            <div class="form hidden" id="signup-form">
+                <h2>Sign Up</h2>
+                <form action="signup.php" method="post">
+                    <label for="signup-first-name">First Name:</label>
+                    <input type="text" id="signup-first-name" name="first_name" required>
+                    
+                    <label for="signup-last-name">Last Name:</label>
+                    <input type="text" id="signup-last-name" name="last_name" required>
+                    
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    
+                    <label for="signup-confirm-password">Confirm Password:</label>
+                    <input type="password" id="signup-confirm-password" name="confirm_password" required>
+                    
+                    <label for="signup-phone">Phone Number:</label>
+                    <input type="text" id="signup-phone" name="phone_number">
+                    
+                    <label for="signup-address">Address:</label>
+                    <textarea id="signup-address" name="address" rows="3"></textarea>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const switchToSignUp = document.getElementById('switch-to-signup');
+        const switchToLogin = document.getElementById('switch-to-login');
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+
+        switchToSignUp.addEventListener('click', function() {
+            loginForm.classList.add('hidden');
+            loginForm.classList.remove('show');
+            signupForm.classList.add('show');
+            signupForm.classList.remove('hidden');
+        });
+
+        switchToLogin.addEventListener('click', function() {
+            signupForm.classList.add('hidden');
+            signupForm.classList.remove('show');
+            loginForm.classList.add('show');
+            loginForm.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

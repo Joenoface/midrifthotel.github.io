@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitwamba Dining Outlets</title>
+    <style>
+       body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf7e3;
+            color: #5a4a37;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #8b6d52;
+            color: #fff;
+            text-align: center;
+            padding: 30px 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fffdf7;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+
+        .outlet {
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        .outlet img {
+            flex: 1 1 250px;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .outlet-text {
+            flex: 2 1 400px;
+        }
+
+        .outlet:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .outlet h2 {
+            color: #8b6d52;
+            margin-top: 0;
+        }
+
+        .outlet p {
+            line-height: 1.6;
+        }
+
+        .outlet .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #8b6d52;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .outlet .btn:hover {
+            background-color: #6c4c35;
+            transform: scale(1.05);
+        }
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Delayed animation for outlets */
+        .outlet:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .outlet:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .outlet:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Gitwamba Dining Outlets</h1>
+    <p>Discover exquisite flavors in a cozy ambiance</p>
+</header>
+
+<div class="container">
+
+    <div class="outlet">
+        <img src="pizza3.jpg" alt="Lenz Pizza Joint">
+        <div class="outlet-text">
+            <h2>🍕 Lenz Pizza Joint</h2>
+            <p>
+                Indulge in our delicious range of pizzas, from classic Margheritas to bold BBQ Chicken creations. Perfect for casual dining or family gatherings.
+            </p>
+            <a href="lenz.html" class="btn">View Lenz Pizza Menu</a>
+        </div>
+    </div>
+
+    <div class="outlet">
+        <img src="babercue.jpg" alt="Mainstreet Barbecue">
+        <div class="outlet-text">
+            <h2>🍔 Mainstreet Barbecue</h2>
+            <p>
+                Savor the taste of flame-grilled burgers and hearty platters. Whether you're craving a cheeseburger or loaded fries, we've got you covered.
+            </p>
+            <a href="mainstreet.html" class="btn">View Mainstreet Barbecue Menu</a>
+        </div>
+    </div>
+
+    <div class="outlet">
+        <img src="coffee.jpg" alt="Rosttoast Coffee Lounge">
+        <div class="outlet-text">
+            <h2>☕ Rosttoast Coffee Lounge</h2>
+            <p>
+                Relax with our freshly brewed coffee, creamy lattes, and decadent desserts. A perfect retreat for a quiet moment or a casual meeting.
+            </p>
+            <a href="roastoast.html" class="btn">View Roastoast Coffee Menu</a>
+        </div>
+    </div>
+
+</div>
+
+<footer style="background-color: #2c2c2c; color: #f1f1f1; padding: 40px 20px; font-size: 14px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <!-- About Section -->
+      <div style="flex: 1 1 250px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">About Us</h3>
+        <p style="line-height: 1.6;">
+          We are dedicated to providing exceptional service and quality experiences.
+          Visit us for a blend of comfort and delicious offerings.
+        </p>
+      </div>
+  
+      <!-- Navigation Links -->
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0; line-height: 1.8;">
+          <li><a href="index.html" style="color: #f1f1f1; text-decoration: none;">Home</a></li>
+          <li><a href="menu.html" style="color: #f1f1f1; text-decoration: none;">Menu</a></li>
+          <li><a href="rooms.html" style="color: #f1f1f1; text-decoration: none;">Rooms</a></li>
+          <li><a href="about_us.html" style="color: #f1f1f1; text-decoration: none;">About_us </a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Section -->
+      <div style="flex: 1 1 250px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Contact Us</h3>
+        <p style="line-height: 1.6;">
+          Gitwamba Building, Kenyatta Avenue<br>
+          Nakuru Town<br>
+          Phone: <a href="0746660706" style="color: #f1f1f1;">0746660706</a><br>
+          Email: <a href="mailto:midrift01@gmail.com" style="color: #f1f1f1;">midrift01@gmail.com</a>
+        </p>
+      </div>
+  
+      <!-- Social Media Links -->
+      <div style="flex: 1 1 250px; margin-bottom: 20px;">
+        <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Follow Us</h3>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/share/oENNHpewBxx9LwrU/?mibextid=LQQJ4d" target="_blank" style="color: #f1f1f1; text-decoration: none;">
+            <img src="facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
+          </a>
+          
+          <a href="https://www.instagram.com/lennzpizzajoint?igsh=ejlsZTk1a2RmbGp3&utm_source=qr" target="_blank" style="color: #f1f1f1; text-decoration: none;">
+            <img src="instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+          </a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <hr style="border: 1px solid #444; margin: 20px 0;">
+  
+    <div style="text-align: center;">
+      <p style="margin: 0; line-height: 1.6;">
+        &copy; 2025 Gitwamba Enterprises. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your stay at Midrift Hotel. Choose your room, select your dates, and enjoy luxury and comfort in Nakuru.">
+    <meta name="keywords" content="Midrift Hotel, Nakuru, hotel booking, accommodation, luxury hotel, room reservation">
+    <title>Booking - Midrift Hotel</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(135deg, #3b3b3b, #944c4c, #0a0a0a);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0073e6, #773127);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #333;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #0073e6;
+            transition: background-color 0.3s ease;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        form input, form select, form textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Midrift Hotel - Booking</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Book Your Stay</h2>
+        <form action="booking_confirmation.php" method="POST">
+            <label for="roomType">Room Type</label>
+            <select id="roomType" name="room_type" required>
+                <option value="" disabled selected>Select a room</option>
+                <option value="standard">Single Standard</option>
+                <option value="deluxe">Standard Room</option>
+                <option value="suite">Deluxe Room</option>
+            </select>
+
+            <label for="checkinDate">Check-in Date</label>
+            <input type="date" id="checkinDate" name="checkin_date" required>
+
+            <label for="checkoutDate">Check-out Date</label>
+            <input type="date" id="checkoutDate" name="checkout_date" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="10" required>
+
+            <label for="requests">Additional Requests</label>
+            <textarea id="requests" name="requests" rows="4" placeholder="Any special requests?"></textarea>
+
+            <input type="submit" value="Book Now">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Midrift Hotel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
