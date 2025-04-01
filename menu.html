@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gitwamba Dining Outlets</title>
+    <title> Dining Outlets</title>
     <style>
+        /* Reset default margins & padding */
+
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -14,6 +17,46 @@
             overflow-x: hidden;
             font-size: 14px;
         }
+
+/* Create a smooth, subtle pan and scale animation */
+@keyframes backgroundPan {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate(10px, 10px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Layering a gradient and background image */
+  background: 
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.6),
+      rgba(238, 215, 4, 0.3)
+    ),
+    url('roastcard.jpg') center / cover no-repeat;
+  
+  background-blend-mode: overlay;
+  
+  filter: brightness(0.9) saturate(1.2);
+  z-index: -1;
+
+  /* Add the lightweight animation */
+  animation: backgroundPan 20s ease-in-out infinite;
+}
+
     
         header {
             /* Apply a subtle gradient where #8b6d52 is used */
@@ -113,7 +156,7 @@
 <body>
 
 <header>
-    <h1>Gitwamba Dining Outlets</h1>
+    <h1>Dining Outlets</h1>
     <p>Discover exquisite flavors in a cozy ambiance</p>
 </header>
 
