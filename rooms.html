@@ -3,17 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gitwamba Room Types</title>
+    <title>Midrift Room Types</title>
     <style>
         /* Base styles optimized for mobile/android screens */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;  /* Modern, clean font */
-            background: linear-gradient(135deg, #f5e6ca, #e8d1b5);
-            color: #4a3c31;
-            overflow-x: hidden;
-        }
+        /* Reset some default margins & padding for consistency */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Set up a fallback background color in case images don't load */
+  background-color: #ebe7e7; 
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.5;
+
+  /* Position context for the pseudo-element */
+  position: relative;
+  min-height: 100vh; 
+}
+
+/* 
+  Using a ::before pseudo-element allows us to:
+  1. Place the background "behind" the body content.
+  2. Layer multiple effects (gradients + image).
+  3. Control blend modes and filters without affecting the content itself.
+*/
+body::before {
+  content: "";
+  /* 
+    Fixed positioning ensures the background stays in place 
+    even when the page scrolls, creating a parallax-like effect.
+  */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* 
+    Layer 1: A linear gradient for subtle shading/lighting effect.
+    Layer 2: The actual background image.
+  */
+  background: 
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.6),
+      rgba(238, 215, 4, 0.3)
+    ),
+    url('nyumba.jpg') center / cover no-repeat;
+
+  /* 
+    background-blend-mode can be used for interesting mixing effects:
+      - multiply
+      - screen
+      - overlay
+      - soft-light
+      - etc.
+    Try different ones to see which suits your design best.
+  */
+  background-blend-mode: overlay;
+
+  /* 
+    Filter can adjust brightness, contrast, saturation, etc.
+    This helps add "depth" or a specific mood to the background.
+  */
+  filter: brightness(0.9) saturate(1.2);
+
+  /* 
+    Keep it behind the main content 
+    (so the text and other elements appear above it).
+  */
+  z-index: -1;
+}
+
     
         header {
             background: #654321;
@@ -164,7 +228,7 @@
 <body>
 
 <header>
-    <h1>MidRift Hotel Room Types</h1>
+    <h1>Hotel Room Types</h1>
     <p>Luxury and comfort tailored to your needs</p>
 </header>
 
