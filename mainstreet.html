@@ -15,7 +15,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(135deg, #d4d3d0, #f0ebeb, #e0dddd);
+    background: 
+    linear-gradient(to left, rgba(97, 51, 51, 0.733), rgba(0, 0, 0, 0.466)), 
+    url('maincard.jpg'); 
+  background-size: cover;
+  background-position: center;
 }
         .clickable-div {
             width: 300px;
@@ -51,8 +55,12 @@ body {
 
 .room {
     flex: 0 0 auto; /* Ensure the rooms take up only their content width */
-    width: 300px; /* Fixed width for the room to ensure consistent size */
-    background: linear-gradient(135deg, #141414, #494949, #b43d3d);
+    width: 150px; /* Fixed width for the room to ensure consistent size */
+    background: 
+    linear-gradient(to left, rgb(46, 13, 4), rgba(0, 0, 0, 0.466)), 
+    url('maincard.jpg'); 
+  background-size: cover;
+  background-position: center;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -105,18 +113,21 @@ body {
 
   /* Independent and responsive logo container */
   .logo-container {
-            background:linear-gradient(135deg, #000000,#000000, #ecebeb); /* Black background for logo section */
-            color: #ff6600; /* Orange text */
-            font-family: 'Georgia', serif;
-            padding: 5vw; /* Padding relative to viewport width */
-            border-radius: 15px;
-            width: 90%; /* Takes up 90% of the viewport width */
-            max-width: 800px; /* Limit the maximum width */
-            min-width: 300px; /* Prevent too small of a size */
-            margin: 5vh auto; /* Center the container vertically and horizontally */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            position: relative; /* To allow overlapping of the circle */
-        }
+    background: 
+        linear-gradient(to left, rgba(46, 13, 4, 0.8), rgba(0, 0, 0, 1)), 
+        url('toastlogo.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    color: #D4A017;
+    padding: 4vw;
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto 60px;
+    position: relative;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
         .logo {
             font-size: 7vw; /* Font size relative to viewport width */
@@ -146,15 +157,13 @@ body {
         .circle {
             width: 150px; /* Adjust as needed */
             height: 150px;
-            background-color: #ff6600; /* Orange circle */
             background: url("mainstreeet.jpg") no-repeat center center;
             background-size: cover;
             border-radius: 50%; /* Make the div circular */
             position: absolute;
-            bottom: -80px; /* Positioning so that it overlaps the logo slightly */
+            bottom: -40px; /* Positioning so that it overlaps the logo slightly */
             left: 50%;
-            transform: translateX(-50%);
-            z-index: 1; /* Ensures the circle appears above the logo */
+            transform: translateX(-50%);/* Ensures the circle appears above the logo */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
@@ -199,7 +208,11 @@ body {
 
     
     header {
-        background: linear-gradient(135deg, #141414, #494949, #b43d3d);
+        background: 
+    linear-gradient(to left, rgba(167, 92, 92, 0.555), rgba(0, 0, 0, 0.466)), 
+    url('street2.jpg'); 
+  background-size: cover;
+  background-position: center;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -254,7 +267,11 @@ body {
         position: fixed;
         top: 60px;
         left: 20px;
-        background: linear-gradient(to right, rgba(223, 13, 13, 0.849), rgba(121, 117, 86, 0.5));
+        background: 
+    linear-gradient(to left, rgba(141, 40, 40, 0.671), rgba(0, 0, 0, 0.466)), 
+    url('sosa.jpg'); 
+  background-size: cover;
+  background-position: center;
         color: #fff;
         padding: 1px;
         border-radius: 10px;
@@ -301,9 +318,7 @@ body {
         <nav>
             <a href="index.html">Home</a>
             <a href="#about">About Us</a>
-            <a href="#outlets">Dining Outlets</a>
             <a href="#hotel">Hotel Booking</a>
-            <a href="#contact">Contact Us</a>
         </nav>
     </header>
 
