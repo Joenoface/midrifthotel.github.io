@@ -46,7 +46,7 @@ body::before {
       rgba(0, 0, 0, 0.6),
       rgba(238, 215, 4, 0.3)
     ),
-    url('roastcard.jpg') center / cover no-repeat;
+    url('abback.jpg') center / cover no-repeat;
   
   background-blend-mode: overlay;
   
@@ -65,11 +65,16 @@ body::before {
             text-align: center;
             padding: 20px 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+
         }
     
         header h1 {
             margin: 0;
             font-size: 1.8em;
+            font-family: 'Permanent Marker', cursive;
+   font-size: 20px;
+   text-shadow: 2px 2px 5px black;
         }
     
         header p {
@@ -78,12 +83,18 @@ body::before {
         }
     
         .container {
-            max-width: 600px;
+            background: 
+    linear-gradient(to left, rgb(99, 97, 96), rgba(202, 202, 202, 0.466)), 
+    url('midriftlog.jpg'); 
+  background-size: cover;
+  background-position: center;
+            max-width: 300px;
             margin: 20px auto;
             padding: 15px;
-            background-color: #fffdf7;
+            display: flex;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            overflow-x:auto;
         }
     
         .outlet {
@@ -91,41 +102,47 @@ body::before {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 30px;
             opacity: 0;
             animation: slideIn 0.8s ease-in-out forwards;
         }
     
-        .outlet img {
-            width: 100%;
+        
+
+        .mainstreet {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            animation: slideIn 0.8s ease-in-out forwards;
+        }
+        .mainstreet img {
+            width: 300px;
+            height: 200px;
             border-radius: 6px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-    
-        .outlet-text {
+        .mainstreet h2 {
             text-align: center;
-        }
-    
-        .outlet h2 {
-            /* Apply a text gradient effect for headings */
-            background: linear-gradient(45deg, #8b6d52, rgba(0,0,0,0.1));
-            -webkit-background-clip: text;
+            background: linear-gradient(45deg, #8b6d52, #800000);
             -webkit-text-fill-color: transparent;
             margin-top: 0;
             font-size: 1.4em;
         }
-    
-        .outlet p {
+        .mainstreet p {
+            text-align: center;
             line-height: 1.4;
             font-size: 0.9em;
         }
-    
-        .outlet .btn {
+        .mainstreet .btn {
             /* Apply the same gradient on buttons */
             display: inline-block;
             margin-top: 10px;
             padding: 8px 16px;
-            background: linear-gradient(45deg, #8b6d52, rgba(0,0,0,0.1));
+            background: linear-gradient(45deg, #8b6d52, #800000);
             color: #fff;
             text-decoration: none;
             font-weight: 500;
@@ -134,10 +151,107 @@ body::before {
             font-size: 0.9em;
         }
     
-        .outlet .btn:hover {
+        .mainstreet .btn:hover {
             background: linear-gradient(45deg, #6c4c35, rgba(0,0,0,0.15));
             transform: scale(1.03);
         }
+
+
+        .roastoast {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            animation: slideIn 0.8s ease-in-out forwards;
+        }
+        .roastoast img {
+            width: 300px;
+            height: 200px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .roastoast p {
+            text-align: center;
+            line-height: 1.4;
+            font-size: 0.9em;
+        }
+        .roastoast h2 {
+            text-align: center;
+            background: linear-gradient(45deg, #8b6d52,  #FF9900);
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        .roastoast .btn {
+            /* Apply the same gradient on buttons */
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #8b6d52,  #FF9900);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 0.9em;
+        }
+        .roastoast .btn:hover {
+            background: linear-gradient(45deg, #6c4c35, rgba(0,0,0,0.15));
+            transform: scale(1.03);
+        }
+
+
+        .lennz {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            animation: slideIn 0.8s ease-in-out forwards;
+            color: #000;
+        }
+        .lennz img {
+            width: 300px;
+            height: 200px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .lennz h2 {
+            text-align: center;
+            background: linear-gradient(45deg, #8b6d52, #228B22);
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        .lennz p {
+            text-align: center;
+            line-height: 1.4;
+            font-size: 0.9em;
+        }
+        .lennz .btn {
+            /* Apply the same gradient on buttons */
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #8b6d52, #228B22);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 0.9em;
+        }
+    
+        .lennz .btn:hover {
+            background: linear-gradient(45deg, #6c4c35, rgba(0,0,0,0.15));
+            transform: scale(1.03);
+        }
+    
     
         @keyframes slideIn {
             from {
@@ -159,13 +273,13 @@ body::before {
     <h1>Dining Outlets</h1>
     <p>Discover exquisite flavors in a cozy ambiance</p>
 </header>
-
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <div class="container">
 
-    <div class="outlet">
+    <div class="lennz">
         <img src="pizza3.jpg" alt="Lenz Pizza Joint">
-        <div class="outlet-text">
-            <h2>🍕 Lenz Pizza Joint</h2>
+        <div class="lennz">
+            <h2>🍕 Lennz Pizza Joint</h2>
             <p>
                 Indulge in our delicious range of pizzas, from classic Margheritas to bold BBQ Chicken creations. Perfect for casual dining or family gatherings.
             </p>
@@ -173,9 +287,9 @@ body::before {
         </div>
     </div>
 
-    <div class="outlet">
+    <div class="mainstreet">
         <img src="babercue.jpg" alt="Mainstreet Barbecue">
-        <div class="outlet-text">
+        <div class="mainstreet">
             <h2>🍔 Mainstreet Barbecue</h2>
             <p>
                 Savor the taste of flame-grilled burgers and hearty platters. Whether you're craving a cheeseburger or loaded fries, we've got you covered.
@@ -184,9 +298,9 @@ body::before {
         </div>
     </div>
 
-    <div class="outlet">
+    <div class="roastoast">
         <img src="coffee.jpg" alt="Rosttoast Coffee Lounge">
-        <div class="outlet-text">
+        <div class="roastoast">
             <h2>☕ Rosttoast Coffee Lounge</h2>
             <p>
                 Relax with our freshly brewed coffee, creamy lattes, and decadent desserts. A perfect retreat for a quiet moment or a casual meeting.
