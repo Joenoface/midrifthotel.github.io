@@ -89,7 +89,11 @@ body::before {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #232423, #5e5d5d);
+    background: 
+    linear-gradient(to left, rgb(99, 97, 96), rgba(202, 202, 202, 0.466)), 
+    url('midriftlogo.jpg'); 
+  background-size: cover;
+  background-position: center;
     color: white;
     padding: 15px 0;
     text-align: center;
@@ -100,6 +104,10 @@ header {
 
 header h1 {
     font-size: 1.8em;  /* reduced from 2.5em */
+    font-family: 'Brush Script MT', cursive;
+        font-weight: bold;
+        color: #FF9900; /* Orange color */
+        margin: 0;
 }
 
 /* Navigation */
@@ -135,6 +143,7 @@ nav a:hover {
     padding: 15px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
+    font-family: 'Brush Script MT', cursive;
 }
 
 /* Content Area */
@@ -145,21 +154,33 @@ nav a:hover {
 }
 
 .section-title {
-    font-size: 1.5em;  /* reduced from 2em */
+    font-size: 3em;  /* reduced from 2em */
     text-align: center;
     margin-bottom: 20px;
+    font-family: 'Brush Script MT', cursive;
+    color: #800000;
 }
 
 /* About Section */
 .about {
     text-align: center;
     margin-bottom: 40px;
-    color: #1bd6535b;  /* reduced margin */
+    color: #228B22; /* reduced margin */
 }
 
 .about h3 {
     font-size: 1.2em;  /* reduced from 1.5em */
     margin-bottom: 15px;
+    font-family: 'Permanent Marker', cursive;
+   text-shadow: 2px 2px 5px black;
+}
+.about h2 {
+    font-size: 1.2em;  /* reduced from 1.5em */
+    margin-bottom: 15px;
+    font-family: 'Permanent Marker', cursive;
+   font-size: 36px;
+   text-shadow: 2px 2px 5px black;
+
 }
 
 .about p {
@@ -167,6 +188,8 @@ nav a:hover {
     color: #ffffffe3;
     max-width: 700px;
     margin: 0 auto;
+    font-family: 'Permanent Marker', cursive;
+
 }
 
 /* Outlets and Hotel Room Widgets */
@@ -240,7 +263,11 @@ nav a:hover {
     position: fixed;
     top: 55px;
     left: 15px;
-    background: linear-gradient(to right, rgba(223, 167, 13, 0.849), rgba(121, 117, 86, 0.5));
+    background: 
+    linear-gradient(to left,rgba(223, 167, 13, 0.849), rgba(121, 117, 86, 0.5)), 
+    url('midriftlogo.jpg'); 
+  background-size: cover;
+  background-position: center;
     color: #fff;
     padding: 1px;
     border-radius: 8px;
@@ -339,6 +366,31 @@ nav a:hover {
     }
 }
 
+   /* Styling for Mid-Rift text */
+   .mid-rift-text {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 20px;
+        font-weight: bold;
+        color: #FF9900; /* Orange color */
+        margin: 0;
+    }
+
+    /* Styling for Hotel text */
+    .hotel-text {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 30px;
+        color: #228B22; /* Green color */
+        margin: 0;
+    }
+
+    /* Styling for CLASSIC ACCOMMODATION */
+    .classic-text {
+        font-size: 10px;
+        font-weight: bold;
+        color: #800000; /* Dark red color */
+        letter-spacing: 2px; /* Increase space between letters */
+        margin-top: 10px;
+    }
 
     </style>
 </head>
@@ -346,7 +398,9 @@ nav a:hover {
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Midrift Hotel & Dining</h1>
+<div class="mid-rift-text">Mid-Rift</div>
+<div class="hotel-text">Hotel</div>
+<div class="classic-text">CLASSIC ACCOMMODATION</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about_us.html">About Us</a>
@@ -363,9 +417,11 @@ nav a:hover {
     <!-- About Us Section -->
     <div class="content">
         <section id="about" class="about">
-            <h2 class="section-title">About Us</h2>
+            <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+            <h2>About Us</h2>
             <h3>Located in the heart of Nakuru</h3>
-            <p>Welcome to Gitwamba Hotel, your ultimate destination for luxurious accommodation and mouth-watering dining experiences. Situated along Kenyatta Avenue, our establishment offers a perfect blend of comfort and taste, featuring hotel room bookings on the second floor and three exquisite dining outlets serving a variety of delicious foods. Whether you're here for business or leisure, we ensure your stay is pleasant and your meals unforgettable.</p>
+            <p>Welcome to Mid-Rift Hotel, your ultimate destination for luxurious accommodation and mouth-watering dining experiences. Situated along Kenyatta Avenue, our establishment offers a perfect blend of comfort and taste, featuring hotel room bookings on the second floor and three exquisite dining outlets serving a variety of delicious foods. Whether you're here for business or leisure, we ensure your stay is pleasant and your meals unforgettable.</p>
         </section>
 
         <!-- Dining Outlets Section -->
