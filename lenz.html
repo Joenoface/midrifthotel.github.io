@@ -1,324 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lennz Pizza Joint Logo</title>
-    <style>
-        /* Base Body Styles */
-        body {
-            background: linear-gradient(135deg, #000000, #c53636);
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
-        }
-    
-        /* Logo Division */
-        .logo-division {
-            background-color: #000;
-            text-align: center;
-            padding: 15px;
-            border-radius: 100px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-            width: 100%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Lennz pizza inn</title>
+  <style>
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;       /* crop/scale to cover */
+  z-index: -1;             /* behind everything */
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+            font-family: 'Solomon Sans', 'Segoe UI', sans-serif;
+            background: 
+                linear-gradient(to left, rgba(104, 103, 103, 0.5), rgba(65, 30, 30, 0.836)),
+                url('roastback.jpg');
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            overflow: auto;
             position: relative;
-            margin-top: 15px;
         }
-    
-        /* Lennz Text */
-        .lennz-text {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 50px;
-            font-weight: bold;
-            color: #ff1e0c;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            animation: explode 0.5s ease-out forwards;
         }
-    
-        /* Pizza Joint Text */
-        .pizza-joint-text {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 35px;
-            font-weight: bold;
-            color: #b30000; /* dark red for consistency */
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-            margin-top: -10px;
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            animation: particle-fade 1s ease-out forwards;
         }
-    
-       /* Decorative Line */
-.decorative-line {
-    width: 100px;
-    height: 4px;
-    background-color: #ff1e0c;
-    margin: 15px auto;
-    position: relative;
-}
-
-.circle-division {
-    width: 100px;
-    height: 100x;
-    background: url('lenz.jpg') no-repeat center center;
-    background-size: cover;
-    border-radius: 50%;
-    margin: -10px auto 0; /* Centered with a negative top margin */
-    position: relative;   /* Enables left/right positioning */
-    left: 40px;           /* Moves the circle 20px to the right */
-    box-shadow: 0 2px 4px rgba(231, 3, 3, 0.7);
-    animation: pulse-spin 4s infinite ease-in-out;
-    z-index: 5;
-}
-
-
-    
-        @keyframes pulse-spin {
+        @keyframes explode {
             0% {
-                transform: translate(-50%, -50%) scale(0.9) rotate(0deg);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.1) rotate(180deg);
+                transform: scale(1);
                 opacity: 1;
             }
             100% {
-                transform: translate(-50%, -50%) scale(0.9) rotate(360deg);
-                opacity: 0.8;
+                transform: scale(0);
+                opacity: 0;
             }
         }
-    
-        /* Footer Styles */
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
+        @keyframes particle-fade {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y));
+                opacity: 0;
+            }
         }
-    
-        /* Rooms Section */
-        .rooms {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            gap: 15px;
-            margin-top: 10px;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding-bottom: 10px;
-        }
-    
-        .room {
-            flex: 0 0 auto;
-            width: 250px;
-            background: linear-gradient(135deg, #000000, #c53636);
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-        }
-    
-        .room:hover {
-            transform: translateY(-8px);
-        }
-    
-        .room img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-    
-        .room h3 {
-            font-size: 1.2em;
-            margin-bottom: 8px;
-        }
-    
-        .room p {
-            font-size: 0.9em;
-        }
-    
-        .room .book-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #d63131;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 0.9em;
-        }
-    
-        .room .book-btn:hover {
-            background-color: #c42e2e;
-        }
-    
-        /* Header and Navigation */
-        header {
-            background: linear-gradient(135deg, #000000, #c53636);
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-    
-        header h1 {
-            font-size: 2em;
-        }
-    
-        nav {
-            margin-top: 8px;
-        }
-    
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9em;
-        }
-    
-        nav a:hover {
-            text-decoration: underline;
-        }
-    
-        /* Toggle Button */
-        .toggle-button {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(204, 54, 54, 0.945));
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            position: fixed;
-            top: 8px;
-            left: 15px;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
-            z-index: 1000;
-        }
-    
-        .toggle-button:hover {
-            background-color: #555;
-            transform: scale(1.03);
-        }
-    
-        /* Navigation Menu */
-        .nav-menu {
-            position: fixed;
-            top: 55px;
-            left: 15px;
-            background: linear-gradient(135deg, #000000, #c53636);
-            color: #fff;
-            padding: 1px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-            width: 170px;
-        }
-    
-        .nav-menu.show {
-            transform: translateX(0);
-        }
-    
-        .nav-menu a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 12px;
-            font-size: 14px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-    
-        .nav-menu a:hover {
-            background-color: #555;
-        }
-    </style>
-    
+
+   header {
+  /* keep your current background */
+  background: 
+    linear-gradient(to left, rgba(184, 41, 1, 0.8), rgb(2, 110, 26)),
+    url('roasthead.jpg');
+  background-size: cover;
+  background-position: center;
+
+  /* constrain size & center */
+  width: 300px;            /* or whatever fits your design */
+  margin: 20px auto;       /* vertical space + auto-center */
+
+  /* rounding, elevation, and stacking */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  position: sticky;
+  top: 20px;               /* so it’s not flush to the very top */
+
+  /* tweaks to padding & text */
+  padding: 10px 20px;      /* smaller padding */
+  text-align: center;
+  color: #ffffff;
+}
+
+/* nav links inside your smaller box */
+header nav a {
+  font-size: 0.9rem;
+  margin: 0 8px;
+  color: #ffffff;
+  text-decoration: none;
+}
+header nav a:hover {
+  opacity: 0.8;
+}
+
+    /* Logo Container */
+    .logo-container {
+    background: 
+        linear-gradient(to left, rgba(46, 13, 4, 0.384), rgba(0, 0, 0, 0.404)), 
+        url('pizza1.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    padding: 4vw;
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto 60px;
+    position: relative;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+    .logo {
+      font-size: 4rem;
+    }
+
+    .lennz {
+      font-family: 'Lobster', cursive;
+      color: red;
+      font-size: 5rem;
+    }
+
+    .pizza-joint {
+      font-family: 'Great Vibes', cursive;
+      color: green;
+      font-size: 3rem;
+    }
+
+    .divider {
+      border-top: 2px solid #078d12;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    /* Circular Logo Emblem */
+    .circle {
+      width: 100px;
+      height: 100px;
+      background: url("lenz.jpg") no-repeat center center;
+      background-size: cover;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+  /* Main Content – fully fluid resizing */
+.rooms {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  padding: clamp(0.75rem, 3vw, 2rem);
+}
+
+/* Each card scales with viewport width */
+.room {
+  position: relative;
+  width: clamp(70%, 80vw, 300px);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  background:
+    linear-gradient(to left, rgba(46, 13, 4, 0), rgba(0, 0, 0, 0)),
+    url('portrait.mp4');
+  background-size: cover;
+  background-position: center;
+  border-radius: clamp(8px, 1.5vw, 12px);
+  box-shadow: 0 clamp(4px, 1vw, 8px) clamp(16px, 2vw, 24px) rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+/* Zig-zag alignment */
+.rooms .room:nth-child(odd)  { align-self: flex-start; }
+.rooms .room:nth-child(even) { align-self: flex-end;   }
+
+.room:hover {
+  transform: translateY(-2%) scale(1.02);
+  box-shadow: 0 clamp(6px, 1.5vw, 12px) clamp(20px, 2.5vw, 28px) rgba(0,0,0,0.25);
+}
+
+/* Image scales fluidly */
+.room img {
+  width: 100%;
+  aspect-ratio: 1.6 / 1;
+  object-fit: cover;
+  border-radius: clamp(6px, 1vw, 8px);
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+/* Fluid typography */
+.room h3 {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  color: #1c6306;
+}
+
+.room p {
+  font-size: clamp(0.7rem, 3vw, 0.9rem);
+  margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Button fluid sizing */
+.book-btn {
+  display: inline-block;
+  padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(0.8rem, 3vw, 1.25rem);
+  background-color: #af230a;
+  color: #fff;
+  font-size: clamp(0.7rem, 3vw, 0.9rem);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Grid layout for wider screens, still fluid */
+@media (min-width: 480px) {
+  .rooms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 30vw, 250px), 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+    padding: clamp(1rem, 4vw, 2.5rem);
+  }
+  .rooms .room {
+    width: auto;
+    margin: 0;
+    align-self: unset;
+  }
+}
+
+   /* ---------------- Toggle Button ---------------- */
+.toggle-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: none;
+  z-index: 1002;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Burger lines */
+.burger,
+.burger span {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: #af230a;
+  border-radius: 2px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.burger span {
+  margin: 6px 0;
+}
+
+/* When open: turn into “X” */
+.toggle-button.open .burger {
+  background: transparent;
+}
+.toggle-button.open .burger span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.toggle-button.open .burger span:nth-child(2) {
+  opacity: 0;
+}
+.toggle-button.open .burger span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* --------------- Full-Screen Menu --------------- */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  background: rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.5s ease;
+  z-index: 1001;
+}
+
+/* Reveal full-screen */
+.nav-menu.show {
+  height: 100vh;
+}
+
+/* Nav links styling */
+.nav-menu a {
+  color: #059919;
+  text-decoration: none;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  margin: 1rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: linkIn 0.5s forwards;
+}
+
+/* Staggered entrance */
+.nav-menu.show a:nth-child(1) { animation-delay: 0.2s; }
+.nav-menu.show a:nth-child(2) { animation-delay: 0.3s; }
+.nav-menu.show a:nth-child(3) { animation-delay: 0.4s; }
+.nav-menu.show a:nth-child(4) { animation-delay: 0.5s; }
+.nav-menu.show a:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes linkIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+    /* Media Queries */
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 8vw;
+      }
+      .coffee-lounge {
+        font-size: 1.2rem;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        bottom: -30px;
+      }
+      header nav a {
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+      .toggle-button {
+        font-size: 1rem;
+      }
+    }
+    /* Wrapper to hold the video and card */
+.daily-offer-wrapper {
+  position: relative;
+  width: clamp(80%, 90vw, 350px);
+  margin: clamp(1rem, 3vw, 2rem) auto;
+  border-radius: clamp(10px, 2vw, 15px);
+  overflow: hidden;
+  box-shadow: 0 clamp(4px,1vw,8px) clamp(16px,2vw,24px) rgba(0,0,0,0.3);
+}
+
+.offer-bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.5) contrast(1.1);
+}
+
+/* Main card sits above the video */
+.daily-offer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  padding: clamp(0.75rem, 2.5vw, 1.5rem);
+  z-index: 2;
+}
+
+/* Small image slot */
+.daily-offer .offer-media {
+  flex: 0 0 auto;
+  width: clamp(60px, 15vw, 80px);
+  height: clamp(60px, 15vw, 80px);
+  margin-right: clamp(0.5rem, 2vw, 1rem);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.daily-offer .offer-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text & button area */
+.daily-offer .offer-content {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+
+.daily-offer .offer-content h4 {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
+}
+
+.daily-offer .offer-content p {
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+/* Button */
+.daily-offer .offer-btn {
+  display: inline-block;
+  padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  background-color: #0e830aa1;
+  color: #000;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.daily-offer .offer-btn:hover {
+  background-color: #d4a017;
+  transform: translateY(-2px);
+}
+
+  </style>
 </head>
 <body>
+ <!-- 1. Video Background -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="portrait.mp4" type="video/mp4">
+    <!-- you can add WEBM or OGG fallbacks here -->
+  </video>
 
-    <!-- Division for Logo at the top -->
-    <div class="logo-division">
-        <!-- Lennz text -->
-        <div class="lennz-text">Lennz</div>
+  <!-- Logo Container -->
+  <div class="logo-container">
+    <div class="divider"></div>
+    <div class="circle"></div>
+  </div>
 
-        <!-- Pizza Joint text -->
-        <div class="pizza-joint-text">Pizza Joint</div>
+  <!-- Header with Navigation -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+  <!-- Daily Offer Banner with Video & Image -->
+  <div class="daily-offer-wrapper">
+    <video class="offer-bg-video" autoplay muted loop playsinline>
+      <source src="nyuma.mp4" type="video/mp4">
+      <!-- add WEBM/OGG fallbacks if needed -->
+    </video>
 
-        <!-- Decorative Line -->
-        <div class="decorative-line"></div>
+    <div class="daily-offer">
+      <div class="offer-media">
+        <img src="cofe.jpg" alt="Today's Special" />
+      </div>
+      <div class="offer-content">
+        <h4>🔥 Today’s Special 🔥</h4>
+        <p>Get our Salted Caramel Latte at 20% off—only today!</p>
+        <a href="special.php" class="offer-btn">Grab It Now</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Circle Division -->
-    <div class="circle-division"></div>
+  <!-- Main Content Section -->
+  <section id="products">
+    <h2 style="text-align: center; margin: 20px 0; color:#af230a;">Our Products</h2>
+    <div class="rooms">
+ <div class="rooms">
+  <div class="room">
+    <img src="pizza3.jpg" alt="RoasToast Signature Pizza">
+    <h3>Signature Slice</h3>
+    <p>Loaded with flavor, baked to perfection.</p>
+    <a href="rmenu.php" class="book-btn">Details</a>
+  </div>
+  <div class="room">
+    <img src="pizza2.jpg" alt="Creamy Delight">
+    <h3>Cheesy Heaven</h3>
+    <p>Overflowing with gooey cheese and savory toppings.</p>
+    <a href="rmenu.php" class="book-btn">Details</a>
+  </div>
+  <div class="room">
+    <img src="pizza.jpg" alt="Choco Fusion">
+    <h3>Spicy Supreme</h3>
+    <p>A fiery mix of bold spices and fresh ingredients.</p>
+    <a href="rmenu.php" class="book-btn">Details</a>
+  </div>
+</div>
 
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#hotel">Hotel Booking</a>
-            <a href="#contact">Contact Us</a>
-        </nav>
-    </header>
+  </section>
 
-    <section id="rooms">
-        <h2>OUR PRODUCTS</h2>
-        <div class="rooms">
-            <div class="room">
-                <img src="pizza1.jpg" alt="Standard Room">
-                <h3>S</h3>
-                <p>A </p>
-                <a href="lenz_menu.html" class="book-btn">Details</a>
-            </div>
-            <div class="room">
-                <img src="pizza2.jpg" alt="Deluxe Room">
-                <h3>S</h3>
-                <p>E</p>
-                <a href="lenz_menu.html" class="book-btn">Details</a>
-            </div>
-            <div class="room">
-                <img src="pizza3.jpg" alt="Suite Room">
-                <h3>D</h3>
-                <p>E.</p>
-                <a href="lenz_menu.html" class="book-btn">Details</a>
-            </div>
-            <div class="room">
-                <img src="pizza3.jpg" alt="Suite Room">
-                <h3>D</h3>
-                <p>E.</p>
-                <a href="lenz_menu.html" class="book-btn">Details</a>
-            </div>
-            
-        </div>
-    </section>
+  <!-- Toggle Button for Mobile Navigation -->
+  <button class="toggle-button" aria-expanded="false" aria-label="Menu">
+    <span class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
 
-   
+  <nav id="navMenu" class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Products</a>
+    <a href="menu.html">Dining</a>
+    <a href="about_us.html">About Us</a>
+    <a href="account.html">Account</a>
+  </nav>
 
-     <!-- Toggle Button -->
- <button class="toggle-button" onclick="toggleMenu()">☰</button>
+  <script>
+    const btn = document.querySelector('.toggle-button');
+    const menu = document.getElementById('navMenu');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('show');
+      btn.classList.toggle('open');
+    });
+  </script>
 
- <!-- Navigation Menu -->
- <div id="navMenu" class="nav-menu">
-     <a href="index.html">Home</a>
-     <a href="rooms.html">Rooms</a>
-     <a href="menu.html">Dining</a>
-     <a href="about_us.html">About us</a>
-     <a href="account.html">Account</a>
-     
- </div>
 
- <script>
-     function toggleMenu() {
-         var menu = document.getElementById('navMenu');
-         menu.classList.toggle('show');
-     }
- </script>
-</body>
-<footer style="background-color: #2c2c2c; color: #f1f1f1; padding: 40px 20px; font-size: 14px;">
+  <!-- Footer -->
+  <footer style="background: linear-gradient(to left,rgba(184, 41, 1, 0.8), rgb(2, 110, 26)); color: #f1f1f1; padding: 40px 20px; font-size: 14px;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+       <!-- Logo Container -->
+  <div class="logo-container">
+      <div class="logo">
+    <div class="lennz">Lennz</div>
+    <div class="pizza-joint">pizza Joint</div>
+  </div>
+    <div class="divider"></div>
+    <div class="circle"></div>
+  </div>
       <!-- About Section -->
       <div style="flex: 1 1 250px; margin-bottom: 20px;">
         <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">About Us</h3>
@@ -332,10 +574,10 @@
       <div style="flex: 1 1 200px; margin-bottom: 20px;">
         <h3 style="color: #ffffff; font-size: 18px; margin-bottom: 15px;">Quick Links</h3>
         <ul style="list-style: none; padding: 0; line-height: 1.8;">
-            <li><a href="index.html" style="color: #f1f1f1; text-decoration: none;">Home</a></li>
-            <li><a href="menu.html" style="color: #f1f1f1; text-decoration: none;">Menu</a></li>
-            <li><a href="rooms.html" style="color: #f1f1f1; text-decoration: none;">Rooms</a></li>
-            <li><a href="about_us.html" style="color: #f1f1f1; text-decoration: none;">About_us </a></li>
+          <li><a href="index.html" style="color: #f1f1f1; text-decoration: none;">Home</a></li>
+          <li><a href="menu.html" style="color: #f1f1f1; text-decoration: none;">Menu</a></li>
+          <li><a href="rooms.html" style="color: #f1f1f1; text-decoration: none;">Rooms</a></li>
+          <li><a href="about_us.html" style="color: #f1f1f1; text-decoration: none;">About_us </a></li>
         </ul>
       </div>
   
@@ -345,8 +587,8 @@
         <p style="line-height: 1.6;">
           Gitwamba Building, Kenyatta Avenue<br>
           Nakuru Town<br>
-          Phone: <a href="tel:0791273166" style="color: #f1f1f1;">0791273166</a><br>
-          Email: <a href="mailto:lennzpizzajointltd@gmail.com" style="color: #f1f1f1;">lennzpizzajointltd@gmail.com</a>
+          Phone: <a href="0746660706" style="color: #f1f1f1;">0746660706</a><br>
+          Email: <a href="mailto:midrift01@gmail.com" style="color: #f1f1f1;">midrift01@gmail.com</a>
         </p>
       </div>
   
@@ -357,6 +599,7 @@
           <a href="https://www.facebook.com/share/oENNHpewBxx9LwrU/?mibextid=LQQJ4d" target="_blank" style="color: #f1f1f1; text-decoration: none;">
             <img src="facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
           </a>
+          
           <a href="https://www.instagram.com/lennzpizzajoint?igsh=ejlsZTk1a2RmbGp3&utm_source=qr" target="_blank" style="color: #f1f1f1; text-decoration: none;">
             <img src="instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
           </a>
@@ -373,4 +616,47 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    function createFirework() {
+        const firework = document.createElement('div');
+        firework.classList.add('firework');
+        document.body.appendChild(firework);
+        
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        firework.style.left = `${x}px`;
+        firework.style.top = `${y}px`;
+        
+        setTimeout(() => {
+            firework.remove();
+            createParticles(x, y);
+        }, 500);
+    }
+    
+    function createParticles(x, y) {
+        const colors = ['#802f2d', '#000', '#fff'];
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            document.body.appendChild(particle);
+            
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            const angle = Math.random() * 2 * Math.PI;
+            const distance = Math.random() * 50;
+            particle.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+            particle.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }
+    }
+    
+    setInterval(createFirework, 500);
+</script>
+</body>
 </html>
