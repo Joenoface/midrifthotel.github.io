@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RoasToast Coffee Lounge</title>
   <style>
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;       /* crop/scale to cover */
+  z-index: -1;             /* behind everything */
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
     /* Base Reset */
     * {
       margin: 0;
@@ -63,31 +77,41 @@
             }
         }
 
-    header {
-        background: 
-        linear-gradient(to left, rgba(46, 13, 4, 0.8), rgba(0, 0, 0, 1)), 
-        url('roasthead.jpg'); 
-        background-size: cover;
-    background-position: center;
-      color: #D4A017;
-      padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+   header {
+  /* keep your current background */
+  background: 
+    linear-gradient(to left, rgba(46, 13, 4, 0.8), rgba(0, 0, 0, 1)),
+    url('roasthead.jpg');
+  background-size: cover;
+  background-position: center;
 
-    header nav a {
-      font-size: 1rem;
-      color:#D4A017;
-      text-decoration: none;
-      margin: 0 15px;
-      transition: opacity 0.3s ease;
-    }
+  /* constrain size & center */
+  width: 300px;            /* or whatever fits your design */
+  margin: 20px auto;       /* vertical space + auto-center */
 
-    header nav a:hover {
-      opacity: 0.8;
-    }
+  /* rounding, elevation, and stacking */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  position: sticky;
+  top: 20px;               /* so it’s not flush to the very top */
+
+  /* tweaks to padding & text */
+  padding: 10px 20px;      /* smaller padding */
+  text-align: center;
+  color: #D4A017;
+}
+
+/* nav links inside your smaller box */
+header nav a {
+  font-size: 0.9rem;
+  margin: 0 8px;
+  color: #D4A017;
+  text-decoration: none;
+}
+header nav a:hover {
+  opacity: 0.8;
+}
 
     /* Logo Container */
     .logo-container {
@@ -148,67 +172,92 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* Main Content */
-    .rooms {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-  gap: 12px;
-  padding: 10px;
-  justify-content: center;
+  /* Main Content – fully fluid resizing */
+.rooms {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  padding: clamp(0.75rem, 3vw, 2rem);
 }
 
+/* Each card scales with viewport width */
 .room {
-  background: 
-    linear-gradient(to left, rgb(46, 13, 4), rgba(0, 0, 0, 0.466)), 
-    url('roastcard.jpg'); 
+  position: relative;
+  width: clamp(70%, 80vw, 300px);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  background:
+    linear-gradient(to left, rgba(46,13,4,0.9), rgba(0,0,0,0.5)),
+    url('portrait.mp4');
   background-size: cover;
   background-position: center;
-  border-radius: 6px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  border-radius: clamp(8px, 1.5vw, 12px);
+  box-shadow: 0 clamp(4px, 1vw, 8px) clamp(16px, 2vw, 24px) rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
 }
+
+/* Zig-zag alignment */
+.rooms .room:nth-child(odd)  { align-self: flex-start; }
+.rooms .room:nth-child(even) { align-self: flex-end;   }
 
 .room:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2%) scale(1.02);
+  box-shadow: 0 clamp(6px, 1.5vw, 12px) clamp(20px, 2.5vw, 28px) rgba(0,0,0,0.25);
 }
 
+/* Image scales fluidly */
 .room img {
   width: 100%;
-  max-height: 100px;
+  aspect-ratio: 1.6 / 1;
   object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 6px;
+  border-radius: clamp(6px, 1vw, 8px);
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
 }
 
+/* Fluid typography */
 .room h3 {
-  font-size: 1rem;
-  margin-bottom: 5px;
-  color: #802f2d;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  color: #D4A017;
 }
 
 .room p {
-  font-size: 0.8rem;
-  margin-bottom: 8px;
-  color: #444;
+  font-size: clamp(0.7rem, 3vw, 0.9rem);
+  margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 }
 
+/* Button fluid sizing */
 .book-btn {
-  display: block;
-  padding: 6px;
-  background-color: #802f2d;
+  display: inline-block;
+  padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(0.8rem, 3vw, 1.25rem);
+  background-color: #d49e17bb;
   color: #fff;
+  font-size: clamp(0.7rem, 3vw, 0.9rem);
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  transition: background-color 0.3s ease;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
 }
 
 .book-btn:hover {
-  background-color: #6b2225;
+  transform: translateY(-2px);
 }
 
+/* Grid layout for wider screens, still fluid */
+@media (min-width: 480px) {
+  .rooms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 30vw, 250px), 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
+    padding: clamp(1rem, 4vw, 2.5rem);
+  }
+  .rooms .room {
+    width: auto;
+    margin: 0;
+    align-self: unset;
+  }
+}
 
     /* Toggle Button & Nav Menu */
     .toggle-button {
@@ -292,12 +341,98 @@
         font-size: 1rem;
       }
     }
+    /* Wrapper to hold the video and card */
+.daily-offer-wrapper {
+  position: relative;
+  width: clamp(80%, 90vw, 350px);
+  margin: clamp(1rem, 3vw, 2rem) auto;
+  border-radius: clamp(10px, 2vw, 15px);
+  overflow: hidden;
+  box-shadow: 0 clamp(4px,1vw,8px) clamp(16px,2vw,24px) rgba(0,0,0,0.3);
+}
+
+.offer-bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.5) contrast(1.1);
+}
+
+/* Main card sits above the video */
+.daily-offer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  padding: clamp(0.75rem, 2.5vw, 1.5rem);
+  z-index: 2;
+}
+
+/* Small image slot */
+.daily-offer .offer-media {
+  flex: 0 0 auto;
+  width: clamp(60px, 15vw, 80px);
+  height: clamp(60px, 15vw, 80px);
+  margin-right: clamp(0.5rem, 2vw, 1rem);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.daily-offer .offer-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text & button area */
+.daily-offer .offer-content {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+
+.daily-offer .offer-content h4 {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
+}
+
+.daily-offer .offer-content p {
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+/* Button */
+.daily-offer .offer-btn {
+  display: inline-block;
+  padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  background-color: #d49e17bb;
+  color: #000;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.daily-offer .offer-btn:hover {
+  background-color: #d4a017;
+  transform: translateY(-2px);
+}
+
   </style>
 </head>
 <body>
+ <!-- 1. Video Background -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="portrait.mp4" type="video/mp4">
+    <!-- you can add WEBM or OGG fallbacks here -->
+  </video>
 
   <!-- Logo Container -->
   <div class="logo-container">
+    
     <div class="logo">
       Roas<span class="flourish"></span>Toast
     </div>
@@ -316,10 +451,28 @@
       <a href="#contact">Contact Us</a>
     </nav>
   </header>
+  <!-- Daily Offer Banner with Video & Image -->
+  <div class="daily-offer-wrapper">
+    <video class="offer-bg-video" autoplay muted loop playsinline>
+      <source src="nyuma.mp4" type="video/mp4">
+      <!-- add WEBM/OGG fallbacks if needed -->
+    </video>
+
+    <div class="daily-offer">
+      <div class="offer-media">
+        <img src="cofe.jpg" alt="Today's Special" />
+      </div>
+      <div class="offer-content">
+        <h4>🔥 Today’s Special 🔥</h4>
+        <p>Get our Salted Caramel Latte at 20% off—only today!</p>
+        <a href="special.php" class="offer-btn">Grab It Now</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Main Content Section -->
   <section id="products">
-    <h2 style="text-align: center; margin: 20px 0; color: #802f2d;">Our Products</h2>
+    <h2 style="text-align: center; margin: 20px 0; color:#D4A017;">Our Products</h2>
     <div class="rooms">
       <div class="room">
         <img src="coffee.jpg" alt="RoasToast Signature Brew">
